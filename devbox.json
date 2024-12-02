@@ -1,12 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.6/.schema/devbox.schema.json",
   "packages": {
-    "deno":       "2",
-    "docker":     "27.3.1",
+    "deno": "2",
+    "docker": "27.3.1",
     "postgresql": "16.4",
     "glibcLocales": {
-      "version":   "latest",
-      "platforms": ["x86_64-linux", "aarch64-linux"]
+      "version": "latest",
+      "platforms": [
+        "x86_64-linux",
+        "aarch64-linux"
+      ]
     }
   },
   "shell": {
@@ -14,6 +17,14 @@
       "echo 'Welcome to devbox!' > /dev/null"
     ],
     "scripts": {
+      "setup-postgresql": [
+        "initdb",
+        "devbox services start postgresql",
+        "sleep 2",
+        "createdb rating_service_db",
+        "createuser -s admin",
+        "cp .env.example .env"
+      ],
       "test": [
         "echo \"Error: no test specified\" && exit 1"
       ]
