@@ -1,50 +1,35 @@
-<p align="center">
-   <img src="https://user-images.githubusercontent.com/38007824/205580360-fa032554-5e9e-4266-8ec9-c78ca9a233bc.svg" width="250" alt="Danet Logo" />
-</p>
+# Introduction
 
-## Description
+The backend API of a full-stack TypeScript rating web application using modern tools.
 
-[Danet](https://github.com/savory/danet) framework starter repository. We
-recommend that you use our CLI instead of cloning the repository :
+# Usage
 
-## Installation
+[Install Devbox](https://www.jetify.com/docs/devbox/installing_devbox/). On
+Windows, install WSL2 as a prerequisite as mentioned in the
+[installation instructions](https://www.jetify.com/docs/devbox/installing_devbox/?install-method=wsl).
 
-Installing Deno packages as a commands is simple. You can install them under any
-name you want. For simplicity's sake, we install our danet-cli under the name
-danet.
+**(Windows only)** - Pull down the project's git repository into WSL file system
+instead of windows mounted file system (so do **not** place in directory
+prefixed with `/mnt`). This will ensure hot reload watch for file changes works
+and Deno/Danet commands have fast performance. Suggested to put in something
+like `~/github/rating-service/`.
 
-`$ deno install --allow-read --allow-write --allow-run --allow-env -n danet https://deno.land/x/danet_cli/main.ts`
+**(first time only)** - run devbox postgres setup script:
 
-## Basic workflow
-
-Once installed, you can invoke CLI commands directly from your OS command line
-through the danet command. See the available danet commands by entering the
-following:
-
-$ danet --help To create, run a new basic Danet project, go to the folder that
-should be the parent of your new project, and run the following commands:
-
-```bash
-$ danet new my-danet-project
-$ cd my-danet-project
-$ deno task launch-server
+```
+devbox run setup-postgresql
 ```
 
-In your browser, open http://localhost:3000 to see the new application running.
+Start the Devbox environment (in WSL shell for Windows):
 
-## Database Options
+```
+devbox shell
+```
 
-When creating a new project, Danet CLI will ask you what database provider you
-want to use between mongodb, postgres and in-memory and will generate all the
-required code.
+Then start the project:
 
-The only thing left if you use mongodb or postgres will be to set environment
-variables or put them in a .env file in your project's root folder.
+```
+deno task launch-server
+```
 
-However, if you need it to be less interactive, you can pass the followings
-options when calling danet new :
-
-`--mongodb` `--postgres` `--in-memory`
-
-Danet is an MIT-licensed open source project. If you'd like to come along the
-journey, please [join our discord](https://discord.gg/Q7ZHuDPgjA).
+This will run the local dev server for the API.
