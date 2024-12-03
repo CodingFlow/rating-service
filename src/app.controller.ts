@@ -1,12 +1,12 @@
-import { Controller, Get } from '@danet/core';
+import { Controller, Get } from "@danet/core";
 
-@Controller('')
+@Controller("")
 export class AppController {
-  constructor() {
-  }
+    constructor() {
+    }
 
-  @Get()
-  helloWorld() {
-    return 'Hello World';
-  }
+    @Get()
+    helloWorld() {
+        return "Hello World";
+    }
 }

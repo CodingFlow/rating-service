@@ -1,25 +1,29 @@
 {
-  "name": "",
-  "version": "",
-  "lint": {
-    "rules": {
-      "exclude": [
-        "require-await"
-      ]
+    "name": "",
+    "version": "",
+    "lint": {
+        "rules": {
+            "exclude": [
+                "require-await"
+            ],
+            "tags": [
+                "recommended"
+            ]
+        }
+    },
+    "fmt": {
+        "options": {
+            "singleQuote": false,
+            "indentWidth": 4
+        }
+    },
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "importMap": "./import_map.json",
+    "tasks": {
+        "launch-server": "deno run --allow-net --allow-read --unstable --allow-env run.ts",
+        "test": "deno test -A --unstable spec"
     }
-  },
-  "fmt": {
-    "options": {
-      "singleQuote": true
-    }
-  },
-  "compilerOptions": {
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  },
-  "importMap": "./import_map.json",
-  "tasks": {
-    "launch-server": "deno run --allow-net --allow-read --unstable --allow-env run.ts",
-    "test": "deno test -A --unstable spec"
-  }
 }
