@@ -125,6 +125,54 @@
         }
       }
     },
+    "liquibase@4.29.2": {
+      "last_modified": "2024-11-28T07:51:56Z",
+      "resolved": "github:NixOS/nixpkgs/226216574ada4c3ecefcbbec41f39ce4655f78ef#liquibase",
+      "source": "devbox-search",
+      "version": "4.29.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/w90c8xz1jwdnxn3i1i7lmfsn9cbg3aij-liquibase-4.29.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/w90c8xz1jwdnxn3i1i7lmfsn9cbg3aij-liquibase-4.29.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/z952mdwvwsmcpzss1vb2m0xxfxcgd358-liquibase-4.29.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/z952mdwvwsmcpzss1vb2m0xxfxcgd358-liquibase-4.29.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/sgwz7s7pdivn3m2a0chp767lhvrppswg-liquibase-4.29.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/sgwz7s7pdivn3m2a0chp767lhvrppswg-liquibase-4.29.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/banbf1sm0g56v9ljdm0sgdz62vxk7rf7-liquibase-4.29.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/banbf1sm0g56v9ljdm0sgdz62vxk7rf7-liquibase-4.29.2"
+        }
+      }
+    },
     "postgresql@16.4": {
       "last_modified": "2024-11-28T07:51:56Z",
       "plugin_version": "0.0.2",

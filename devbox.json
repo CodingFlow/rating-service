@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.6/.schema/devbox.schema.json",
   "packages": {
-    "deno": "2",
-    "docker": "27.3.1",
+    "deno":       "2",
+    "docker":     "27.3.1",
     "postgresql": "16.4",
     "glibcLocales": {
       "version": "latest",
@@ -10,11 +10,14 @@
         "x86_64-linux",
         "aarch64-linux"
       ]
-    }
+    },
+    "liquibase": "4.29.2"
   },
   "shell": {
     "init_hook": [
-      "echo 'Welcome to devbox!' > /dev/null"
+      "echo 'Welcome to devbox!' > /dev/null",
+      "export RATING_SERVICE_DB_URL=jdbc:postgresql://localhost:5432/rating_service_db",
+      "export RATING_SERVICE_DB_USERNAME=admin"
     ],
     "scripts": {
       "setup-postgresql": [

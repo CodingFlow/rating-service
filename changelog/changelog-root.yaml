@@ -1,0 +1,69 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1"
+      author: codingflow
+      changes:
+        - createTable:
+            tableName: service
+            columns:
+              - column:
+                  name: id
+                  autoIncrement: true
+                  type: int
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: description
+                  type: varchar(400)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  autoIncrement: true
+                  type: int
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(400)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: service_rating
+            columns:
+              - column:
+                  name: id
+                  autoIncrement: true
+                  type: int
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: rating
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: comment
+                  type: varchar(400)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: service_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: id
+                    referencedTableName: user
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: id
+                    referencedTableName: user
