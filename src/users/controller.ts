@@ -10,7 +10,7 @@ export class UserController {
 
     @ReturnedType(User, true)
     @Get()
-    async getAllTodo() {
+    async getAllUsers() {
         return this.userService.getAll();
     }
 
@@ -35,7 +35,7 @@ export class UserController {
     }
 
     @Delete(":id")
-    async deleteOne(@Param("id") todoId: string) {
-        return this.userService.deleteOneById(todoId);
+    async deleteOne(@Param("id") userId: string) {
+        return this.userService.deleteOneById(userId);
     }
 }

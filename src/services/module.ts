@@ -1,16 +1,16 @@
-import { UserController } from "./controller.ts";
-import { UserService } from "./service.ts";
+import { ServicesController } from "./controller.ts";
+import { serviceService } from "./service.ts";
 import { Module, TokenInjector } from "@danet/core";
-import { USER_REPOSITORY } from "./constant.ts";
+import { SERVICE_REPOSITORY } from "./constant.ts";
 import { PostgresRepository } from "./postgres-repository.ts";
 import { DatabaseModule } from "../database/module.ts";
 
 @Module({
-    controllers: [UserController],
+    controllers: [ServicesController],
     injectables: [
-        new TokenInjector(PostgresRepository, USER_REPOSITORY),
-        UserService,
+        new TokenInjector(PostgresRepository, SERVICE_REPOSITORY),
+        serviceService,
     ], // change InMemoryTodoRepository by any custom repository using other database engine if needed
     imports: [DatabaseModule],
 })
-export class UserModule {}
+export class ServiceModule {}

@@ -1,9 +1,10 @@
 import { Module } from "@danet/core";
-import { TodoModule } from "./users/module.ts";
+import { UserModule } from "./users/module.ts";
 import { AppController } from "./app.controller.ts";
+import { ServiceModule } from "./services/module.ts";
 
 @Module({
     controllers: [AppController],
-    imports: [TodoModule],
+    imports: [UserModule, ServiceModule],
 })
 export class AppModule {}
