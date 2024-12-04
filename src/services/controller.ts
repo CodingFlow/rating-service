@@ -1,11 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@danet/core";
 import { Service } from "./class.ts";
-import { serviceService } from "./service.ts";
+import { ServiceService } from "./service.ts";
 import { ReturnedType } from "@danet/swagger/decorators";
 
 @Controller("services")
 export class ServicesController {
-    constructor(public serviceService: serviceService) {
+    constructor(public serviceService: ServiceService) {
     }
 
     @ReturnedType(Service, true)

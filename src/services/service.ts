@@ -2,19 +2,23 @@ import { Inject, Injectable } from "@danet/core";
 import { Service } from "./class.ts";
 import type { Repository } from "../database/repository.ts";
 import type { AssociativeRepository } from "../database/associative-repository.ts";
-import { SERVICE_RATING_REPOSITORY, SERVICE_REPOSITORY } from "./constant.ts";
+import {
+    ASSOCIATIVE_SERVICE_RATING_REPOSITORY,
+    SERVICE_REPOSITORY,
+} from "./constant.ts";
 import { ServiceRating } from "./class-service-rating.ts";
 
 @Injectable()
-export class serviceService {
+export class ServiceService {
     constructor(
         @Inject(SERVICE_REPOSITORY) private repository: Repository<
             Service
         >,
-        @Inject(SERVICE_RATING_REPOSITORY) private serviceRatingRepository:
-            AssociativeRepository<
-                ServiceRating
-            >,
+        @Inject(
+            ASSOCIATIVE_SERVICE_RATING_REPOSITORY,
+        ) private serviceRatingRepository: AssociativeRepository<
+            ServiceRating
+        >,
     ) {
     }
 
