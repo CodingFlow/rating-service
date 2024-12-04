@@ -3,54 +3,54 @@ databaseChangeLog:
           id: "1"
           author: codingflow
           changes:
-              - createTable:
-                    tableName: service
-                    columns:
-                        - column:
-                              name: pk
-                              autoIncrement: true
-                              type: int
-                              constraints:
-                                  nullable: false
-                                  primaryKey: true
-                        - column:
-                              name: id
-                              type: uuid
-                              constraints:
-                                  nullable: false
-                        - column:
-                              name: name
-                              type: varchar(400)
-                              constraints:
-                                  nullable: false
-                        - column:
-                              name: description
-                              type: varchar(400)
-                              constraints:
-                                  nullable: false
-              - createTable:
-                    tableName: user
-                    columns:
-                        - column:
-                              name: pk
-                              autoIncrement: true
-                              type: int
-                              constraints:
-                                  nullable: false
-                                  primaryKey: true
-                        - column:
-                              name: id
-                              type: uuid
-                              constraints:
-                                  nullable: false
-                        - column:
-                              name: name
-                              type: varchar(400)
-                              constraints:
-                                  nullable: false
-              - createTable:
-                    tableName: service_rating
-                    columns:
+            - createTable:
+                tableName: service
+                columns:
+                    - column:
+                            name: pk
+                            autoIncrement: true
+                            type: int
+                            constraints:
+                                nullable: false
+                                primaryKey: true
+                    - column:
+                            name: id
+                            type: uuid
+                            constraints:
+                                nullable: false
+                    - column:
+                            name: name
+                            type: varchar(400)
+                            constraints:
+                                nullable: false
+                    - column:
+                            name: description
+                            type: varchar(400)
+                            constraints:
+                                nullable: false
+            - createTable:
+                tableName: user
+                columns:
+                    - column:
+                            name: pk
+                            autoIncrement: true
+                            type: int
+                            constraints:
+                                nullable: false
+                                primaryKey: true
+                    - column:
+                            name: id
+                            type: uuid
+                            constraints:
+                                nullable: false
+                    - column:
+                            name: name
+                            type: varchar(400)
+                            constraints:
+                                nullable: false
+            - createTable:
+                tableName: service_rating
+                columns:
                         - column:
                               name: pk
                               autoIncrement: true
@@ -87,3 +87,7 @@ databaseChangeLog:
                                   nullable: false
                                   foreignKeyName: id
                                   referencedTableName: user
+            - addUniqueConstraint:
+                    tableName: service_rating
+                    columnNames: service_id, user_id 
+                    constraintName: unique_service_user
