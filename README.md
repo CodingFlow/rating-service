@@ -12,6 +12,7 @@ tools.
   development environments.
 - [Liquibase](https://www.liquibase.com/) - Database versioning and migration
   tool.
+- [Docker](https://www.docker.com/) - Dockerfile setup to deploy to AWS Lambda.
 
 # Usage
 
