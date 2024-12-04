@@ -5,6 +5,11 @@ import { loggerMiddleware } from "./logger.middleware.ts";
 import { SpecBuilder, SwaggerModule } from "@danet/swagger";
 export const bootstrap = async () => {
     const application = new DanetApplication();
+
+    application.enableCors({
+        origin: "*",
+    });
+
     await application.init(AppModule);
     const spec = new SpecBuilder()
         .setTitle("Todo")
@@ -14,5 +19,6 @@ export const bootstrap = async () => {
     const document = await SwaggerModule.createDocument(application, spec);
     await SwaggerModule.setup("api", application, document);
     application.addGlobalMiddlewares(loggerMiddleware);
+
     return application;
 };
