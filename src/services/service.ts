@@ -1,13 +1,20 @@
 import { Inject, Injectable } from "@danet/core";
 import { Service } from "./class.ts";
 import type { Repository } from "../database/repository.ts";
-import { SERVICE_REPOSITORY } from "./constant.ts";
-import { ObjectId } from "@db/mongo";
+import type { AssociativeRepository } from "../database/associative-repository.ts";
+import { SERVICE_RATING_REPOSITORY, SERVICE_REPOSITORY } from "./constant.ts";
+import { ServiceRating } from "./class-service-rating.ts";
 
 @Injectable()
 export class serviceService {
     constructor(
-        @Inject(SERVICE_REPOSITORY) private repository: Repository<Service>,
+        @Inject(SERVICE_REPOSITORY) private repository: Repository<
+            Service
+        >,
+        @Inject(SERVICE_RATING_REPOSITORY) private serviceRatingRepository:
+            AssociativeRepository<
+                ServiceRating
+            >,
     ) {
     }
 
@@ -15,11 +22,21 @@ export class serviceService {
         return this.repository.getAll();
     }
 
-    getById(id: string) {
-        return this.repository.getById(id);
+    async getById(id: string) {
+        const servicePromise = this.repository.getById(id);
+        const serviceRatingsPromise = this.serviceRatingRepository.getAllForId(
+            id,
+        );
+
+        const service = await servicePromise;
+        const serviceRatings = await serviceRatingsPromise;
+
+        service!.ratings = serviceRatings;
+
+        return service;
     }
 
-    async create(serviceWithoutId: Omit<Service, "_id">) {
+    async create(serviceWithoutId: Omit<Service, "id">) {
         const id = crypto.randomUUID();
         const service = new Service(
             serviceWithoutId.name,

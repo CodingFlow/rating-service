@@ -1,5 +1,6 @@
-import { IsString, LengthGreater } from "@danet/core/validation";
+import { IsString } from "@danet/core/validation";
 import type { ObjectId } from "@db/mongo";
+import { ServiceRating } from "./class-service-rating.ts";
 
 export class Service {
     readonly id:
@@ -11,6 +12,8 @@ export class Service {
 
     @IsString()
     public description: string;
+
+    public ratings: ServiceRating[] = [];
 
     constructor(
         name: string,
